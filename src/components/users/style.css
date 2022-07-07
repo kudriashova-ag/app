@@ -1,0 +1,14 @@
+.user-list a {
+  display: block;
+  margin: 10px 0;
+}
+
+.users {
+  display: flex;
+}
+
+.user-list {
+  padding: 0 50px;
+  margin-right: 50px;
+  border-right: 1px #000 solid;
+}
