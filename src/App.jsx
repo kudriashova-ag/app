@@ -1,29 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import styles from "./App.module.scss";
+import classNames from "classnames";
+import userEvent from "@testing-library/user-event";
+import Header from "./components/header";
 
 function App() {
   return (
     <div className="container">
-
-      <header>
-        <h1>My App</h1>
-        <nav>
-          <NavLink to="/"> Home </NavLink>|
-          <NavLink to="users"> Users </NavLink>|
-          <NavLink to="tasks"> Tasks </NavLink>
-        </nav>
-      </header>
+      <Header />
 
       <Outlet />
 
-
-      <footer>
-        copyright
-      </footer>
-      
+      <footer>copyright</footer>
     </div>
   );
 }
-
 
 export default App;
