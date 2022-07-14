@@ -1,5 +1,5 @@
 import React from "react";
-import { getUsers, getUser } from "../../data";
+import { getUsers } from "../../data";
 import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 import styles from "./Users.module.scss";
 
