@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import User from './components/user';
 import Users from './components/users';
+import LoginForm from './components/login-form';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,9 @@ root.render(
           </Route>
 
           <Route path="tasks" element={<h1>Tasks</h1>} />
+
+          <Route path="login" element={<LoginForm />} />
+
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Route>
 

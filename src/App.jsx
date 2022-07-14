@@ -1,36 +1,31 @@
 import React, { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styles from "./App.module.scss";
-import classNames from "classnames";
-
+import Header from "./components/header";
+import { UserContext, ThemeContext } from "./contexts";
+import OPTIONS from "./constants";
+const { THEMES } = OPTIONS;
 
 function App() {
-  const [activeBtn, setActiveBtn] = useState(true);
+  const [currentUser, setCurrentUser] = useState({
+    login: "admin",
+    email: "admin@gmail.com",
+  });
+  const [currentTheme, setCurrentTheme] = useState(THEMES.DARK);
+  const setTheme = (theme) => setCurrentTheme(theme);
+
+
   return (
-    <div className="container">
-      <header>
-        <h1>My App</h1>
-        <nav>
-          <NavLink to="/"> Home </NavLink>|<NavLink to="users"> Users </NavLink>
-          |<NavLink to="tasks"> Tasks </NavLink>
-        </nav>
-
-        <button
-          className={classNames(styles.btn, { [styles.btn_active]: activeBtn })}
-          onClick={() => {
-            setActiveBtn(!activeBtn);
-          }}
-        >
-          Button
-        </button>
-      </header>
-
-      <Outlet />
-
-      <footer>copyright</footer>
-    </div>
+    <ThemeContext.Provider value={{currentTheme, setTheme}}>
+      <UserContext.Provider value={currentUser}>
+        <div className="container">
+          <Header />
+          <Outlet />
+          <footer>copyright</footer>
+        </div>
+      </UserContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 
 export default App;
-
