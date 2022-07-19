@@ -15,7 +15,7 @@ root.render(
       <Routes>
 
         <Route path="/" element={<App />}>
-
+          
           <Route path="users" element={<Users />}>
             <Route path=":id" element={<User />} />
           </Route>
